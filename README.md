@@ -5,9 +5,9 @@ JSON, and the parsing is all done for you.
 
 # Usage
 
-+ Download [require-json.js](//raw.github.com/steveukx/require-json/master/require-json.js)
+Download [require-json.js](//raw.github.com/steveukx/require-json/master/require-json.js)
 
-+ Add an entry to your require config:
+Add an entry to your require config:
 
     require.config({
        paths: {
@@ -15,7 +15,7 @@ JSON, and the parsing is all done for you.
        }
     });
 
-+ Add dependencies to your files:
+Add dependencies to your files:
 
     require(['json!/rest/service/'], function(json) {
        // json is the JSON parsed result of calling /rest/service

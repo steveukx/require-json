@@ -3,11 +3,13 @@ define(function () {
    "use strict";
 
    /**
-    * @name require-json
-    * @constructor
+    *
+    * @param {String} path
+    * @param {Function} onDone
     */
    function requireJson(path, onDone) {
       var xhr = new XMLHttpRequest;
+      xhr.open('GET', path, true);
       xhr.setRequestHeader('Accept', 'application/json');
       xhr.onreadystatechange = function(e) {
          if(xhr.readyState === 4) {
@@ -21,7 +23,7 @@ define(function () {
                err = e;
             }
             finally {
-               onDone(err, json || null);
+               onDone(err || ((xhr.status >= 300 || xhr.status < 200) ? json || new Error(xhr.status) : null), json || null);
             }
          }
       };
